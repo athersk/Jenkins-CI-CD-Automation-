@@ -4,13 +4,13 @@ pipeline {
     environment {
     VERSION = "1.0.${BUILD_NUMBER}"  // Auto versioning using Jenkins build number
   }
-    tools{
-        maven "maven3.8.4"
+    tools{ 
+        maven "maven3.8.4"  //only install in manage jenkins-tools
     }
     stages {
         stage('checkout-Maven-code') {
             steps {
-                git branch: 'automation-devops', url: 'https://github.com/athersk/Java_app_3.0.git'
+                git branch: 'automation-dev', url: 'https://github.com/athersk/Java_app_3.0.git'
             }
         }
      stage('Build-mv-code') {
