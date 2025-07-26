@@ -23,8 +23,8 @@ This defines environment variables used throughout your pipeline.
 VERSION is a variable we're creating.
 "1.0.${BUILD_NUMBER}" combines static text (1.0.) with Jenkins built-in variable ${BUILD_NUMBER}.
 **Example:**
-If the current Jenkins build number is 42, then:
-VERSION = 1.0.42
+If the current Jenkins build number is 6, then:
+VERSION = 1.0.6
 
 2. What is -Dversion=${VERSION} in Maven?
 sh 'mvn clean package -Dversion=${VERSION}'
@@ -49,10 +49,14 @@ sh 'mv target/myapp.jar target/myapp-${VERSION}.jar'
 This renames the JAR file after build.
 Default Maven output is: target/myapp.jar
 This step renames it to something like:
-myapp-1.0.42.jar (dynamic version)
+myapp-1.0.6.jar (dynamic version)
 
 So every pipeline run creates a uniquely named artifact.
 
 Note:
 If your pom.xml doesn’t use ${version}, the -Dversion won’t change anything internally, but the renamed WAR file will still carry the version info.
 Would you like help modifying your pom.xml to support this versioning fully?
+
+Output:
+<img width="1140" height="465" alt="image" src="https://github.com/user-attachments/assets/ad0502fe-61a2-4369-b144-08415b25f23e" />
+
